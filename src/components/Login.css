@@ -1,0 +1,23 @@
+#userLogin{
+    min-width: 15rem;
+}
+#userLogin>button{
+        margin-top: 2rem;
+        background-color: lightblue;
+        padding: 0.4rem;
+        border-radius: 0.4rem;
+}
+#userLogin>h2{
+    align-items: center;
+}
+#userLogin>input{
+    width: 7rem;
+    border: none;
+    padding: 3px;
+    background: rgb(255, 255, 255);
+    font-weight: 10;
+}
+#userLogin>p{
+    font-size: small;
+    display: block;
+}
