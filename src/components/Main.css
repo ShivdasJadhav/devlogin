@@ -1,0 +1,32 @@
+.signBtn{ 
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0;
+}
+.signBtn>a{
+    cursor: pointer;
+    margin: 0 0;
+    width: 50%;
+    text-align: center;
+    padding: 0.2rem;
+    transition: all;
+    transition: 1s;
+ }
+#clicked{
+    background-color:#00ACee;
+    box-shadow: 0.1rem 0.2rem 0.1rem rgb(255, 255, 255) inset;
+    color: white;
+    cursor: not-allowed;
+}
+#unclicked{
+    background-color: #0b69e3;
+    color: white;
+
+}
+#unclicked:hover{
+    text-decoration: underline;
+}
+.round-lg{
+    border-radius: 0.5rem 0.5rem 0 0;
+}
