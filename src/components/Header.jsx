@@ -1,6 +1,5 @@
 import "./Header.css";
-import maleIcon from "../imgs/manIcon.jpg";
-import Register from "./Register";
+import maleIcon from "../assets/imgs/manIcon.jpg";
 const Header = () => {
   return (
     <>

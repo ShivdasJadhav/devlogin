@@ -1,10 +1,12 @@
 import React from "react";
-import BussinessImg from "../imgs/bgimg2.png";
-import manIcon from "../imgs/manIcon.jpg";
+import BussinessImg from "../assets/imgs/bgimg2.png";
+import manIcon from "../assets/imgs/manIcon.jpg";
 function About() {
   return (
     <section id="about" className="text-gray-600 my-10 body-font h-fit">
       <div className="container px-5 py-24 mx-auto flex flex-col">
+      <h2 className="mb-12 pb-4 text-center text-3xl font-bold">About us</h2>
+
         <div className="lg:w-4/6 mx-auto">
           <img
             alt="content"
