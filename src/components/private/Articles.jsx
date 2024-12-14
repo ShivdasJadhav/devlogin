@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function News() {
+function Articles() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
       .get(`./news.json`)
-      .then((res) => setPosts(res.data.articles.slice(0, 10)))
+      .then((res) => setPosts(res.data.articles))
       .catch((e) => console.log("Error fetching data:", e));
   }, []);
   return (
-    <div id="news" className="w-10/12 mx-auto">
-      <h2 className="mb-12 pb-4 text-center text-3xl font-bold">
-        Latest articles
-      </h2>
+    <div id="news" className="w-10/12 mx-auto py-8">
       <ul>
         <div className="grid gap-6 lg:grid-cols-3 xl:gap-x-12 h-screen overflow-auto no-scrollbar">
-          {posts.map((post) => (
+          {posts.reverse().map((post) => (
             <li key={post._id}>
               <div className="mb-6 lg:mb-0">
                 <div className="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border">
@@ -71,4 +68,4 @@ function News() {
     </div>
   );
 }
-export default News;
+export default Articles;

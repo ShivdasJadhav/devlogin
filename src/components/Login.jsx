@@ -7,7 +7,7 @@ const loginSchema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().required(),
 });
-function Login() {
+function Login(props) {
   const {
     register,
     handleSubmit,
@@ -16,30 +16,19 @@ function Login() {
     resolver: yupResolver(loginSchema),
   });
 
- async function submitLoginForm(e) {
-    // const { email, password } = e;
-    // // e.preventDefault();
-    
-    //   const response = await fetch("http://localhost:3000/api/auth", {
-    //     method: "GET",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   });
-    //   if (!response.ok) {
-    //     throw new Error(`Error! status: ${response.status}`);
-    //   }
-    //   const data = await response.json();
-    //   console.log(data);
-    
-    // response();
-    alert("Invalid Credentioals!");
+  async function submitLoginForm(e) {
+    const { email, password } = e;
+    if (email === "recruiter@gmail.com" && password === "im_hr"){
+      props.setLogin(true);
+      localStorage.setItem("session_token", "recruiter_in");
+    }
+    else{ alert("Invalid credentials. Please try again.");
+      localStorage.removeItem("session_token");
+    }
   }
 
-  
- 
   return (
-    <form  onSubmit={handleSubmit(submitLoginForm)}>
+    <form onSubmit={handleSubmit(submitLoginForm)}>
       <div className="form-group mb-6">
         {" "}
         <input
@@ -66,7 +55,7 @@ function Login() {
         type="submit"
         data-mdb-ripple="true"
         data-mdb-ripple-color="light"
-       className="inline-block px-6 py-2.5 mb-6 w-full bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+        className="inline-block px-6 py-2.5 mb-6 w-full bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
       >
         Login
       </button>

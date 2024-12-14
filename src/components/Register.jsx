@@ -14,7 +14,7 @@ const registerSchema = yup.object().shape({
   phoneNo: yup.number().min(10).required(),
 });
 
-function Register() {
+function Register(props) {
   const [userData, setData] = useState({
     firstName: "",
     lastName: "",
@@ -38,36 +38,17 @@ function Register() {
   } = useForm({
     resolver: yupResolver(registerSchema),
   });
-   function submitData(e){
-    alert("Registered successfully!")
-      // const {
-      //   firstName,
-      //   lastName,
-      //   email,
-      //   userName,
-      //   password,
-      //   confirmPass,
-      //   address,
-      //   phoneNo,
-      // } = userData;
-      // axios.post("http://localhost:4002/register",{
-      //   fname: firstName,
-      //   lname: lastName,
-      //   email: email,
-      //   userId: userName,
-      //   pass: password,
-      //   address: address,
-      //   phone: phoneNo,
-      // }).then((res)=>{
-      //   console.log(res);
-      //   alert('data sended!')
-      // })
-};
+  function submitData(e) {
+    alert("Registered successfully!");
+    localStorage.setItem("session_token","recruiter_in")
+    props.setLogin(true);
+  }
   return (
     <form method="POST" onSubmit={handleSubmit(submitData)}>
       <div id="registerForm" className="grid grid-cols-2 gap-4">
         <div className="form-group mb-6">
-          <input autoComplete="off"
+          <input
+            autoComplete="off"
             {...register("firstName")}
             type="text"
             name="firstName"
@@ -95,7 +76,8 @@ function Register() {
           <p className="alert">{errors.firstName?.message}</p>
         </div>
         <div className="form-group mb-6">
-          <input autoComplete="off"
+          <input
+            autoComplete="off"
             {...register("lastName")}
             type="text"
             name="lastName"
@@ -124,7 +106,8 @@ function Register() {
         </div>
       </div>
       <div className="form-group mb-6">
-        <input autoComplete="off"
+        <input
+          autoComplete="off"
           {...register("email")}
           type="email"
           name="email"
@@ -150,7 +133,8 @@ function Register() {
         <p className="alert">{errors.email?.message}</p>
       </div>
       <div className="form-group mb-6">
-        <input autoComplete="off"
+        <input
+          autoComplete="off"
           {...register("userName")}
           type="text"
           name="userName"
@@ -176,7 +160,8 @@ function Register() {
         <p className="alert">{errors.userName?.message}</p>
       </div>
       <div className="form-group mb-6">
-        <input autoComplete="off"
+        <input
+          autoComplete="off"
           {...register("address")}
           type="text"
           name="address"
@@ -202,7 +187,8 @@ function Register() {
         <p className="alert">{errors.address?.message}</p>
       </div>
       <div className="form-group mb-6">
-        <input autoComplete="off"
+        <input
+          autoComplete="off"
           {...register("phoneNo")}
           name="phoneNo"
           value={userData.phone}
@@ -230,7 +216,8 @@ function Register() {
         </p>
       </div>
       <div className="form-group mb-6">
-        <input autoComplete="off"
+        <input
+          autoComplete="off"
           {...register("password")}
           type="text"
           name="password"
@@ -256,7 +243,8 @@ function Register() {
         <p className="alert">{errors.password?.message}</p>
       </div>
       <div className="form-group mb-6">
-        <input autoComplete="off"
+        <input
+          autoComplete="off"
           {...register("confirmPass")}
           type="text"
           name="confirmPass"
@@ -283,8 +271,7 @@ function Register() {
           {errors.confirmPass && "passwords should match!"}
         </p>
       </div>
-      
-     
+
       <button
         type="submit"
         data-mdb-ripple="true"
