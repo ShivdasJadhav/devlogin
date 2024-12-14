@@ -39,7 +39,7 @@ function About() {
                 I have implemented some logic to flip from Login to Register components and vice versa. also I have used <b><i>'Axios'</i></b> here to implement API requests and represented the information fetched in the form of Articles.
                 Note here that this is not a Fullstack application it consist some javascript logic to respond on value submission in above forms.
               </p>
-              <a className="text-white px-2 rounded-md bg-blue-400 inline-flex items-center" href="https://www.linkedin.com/in/shivdas-s-jadhav-7b8096210/">
+              <a className="text-white px-2 rounded-md bg-blue-400 inline-flex items-center" href="https://www.linkedin.com/in/shivdas-jadhav-7b8096210/">
                 Developer
                 <svg
                   fill="none"
